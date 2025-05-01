@@ -14,7 +14,6 @@ const typeDefs = `#graphql
   }
 
 
-
   # The "Query" type defines lists all of the available queries that clients can execute, along with the return type for each. 
   # In this case, the "user" query returns an array of zero or more Users.
 
@@ -24,20 +23,18 @@ const typeDefs = `#graphql
   }
 
 
-
   # Modify server-side data (Create a new user)
 
   type Mutation {
       createUser(name: String!, age: Int!, isMarried: Boolean!): User
   }
 
-
 `;
 
 const resolvers = {
     Query: {
         getUsers: () => { 
-            return users 
+            return users; 
         },
         getUserById: (parent, args) => {
             return users.find((user) => user.id === args.id);
